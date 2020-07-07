@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\card1.png" />
+    <Resource Include="Resources\card2.png" />
+    <Resource Include="Resources\card3.png" />
+    <Resource Include="Resources\card4.png" />
+    <Resource Include="Resources\card5.png" />
+    <Resource Include="Resources\card6.png" />
+    <Resource Include="Resources\card7.png" />
+    <Resource Include="Resources\card8.png" />
+    <Resource Include="Resources\card9.png" />
+    <Resource Include="Resources\card10.png" />
+    <Resource Include="Resources\card11.png" />
+    <Resource Include="Resources\card12.png" />
+    <Resource Include="Resources\card13.png" />
+    <Resource Include="Resources\card14.png" />
+    <Resource Include="Resources\card15.png" />
+    <Resource Include="Resources\card16.png" />
+    <Resource Include="Resources\card17.png" />
+    <Resource Include="Resources\card18.png" />
+    <Resource Include="Resources\card19.png" />
+    <Resource Include="Resources\card20.png" />
+    <Resource Include="Resources\card21.png" />
+    <Resource Include="Resources\card22.png" />
+    <Resource Include="Resources\card23.png" />
+    <Resource Include="Resources\card24.png" />
+    <Resource Include="Resources\card25.png" />
+    <Resource Include="Resources\card26.png" />
+    <Resource Include="Resources\card27.png" />
+    <Resource Include="Resources\card28.png" />
+    <Resource Include="Resources\card29.png" />
+    <Resource Include="Resources\card30.png" />
+    <Resource Include="Resources\card31.png" />
+    <Resource Include="Resources\card32.png" />
+    <Resource Include="Resources\card33.png" />
+    <Resource Include="Resources\card34.png" />
+    <Resource Include="Resources\card35.png" />
+    <Resource Include="Resources\card36.png" />
+    <Resource Include="Resources\card37.png" />
+    <Resource Include="Resources\card38.png" />
+    <Resource Include="Resources\card39.png" />
+    <Resource Include="Resources\card40.png" />
+    <Resource Include="Resources\card41.png" />
+    <Resource Include="Resources\card42.png" />
+    <Resource Include="Resources\card43.png" />
+    <Resource Include="Resources\card44.png" />
+    <Resource Include="Resources\card45.png" />
+    <Resource Include="Resources\card46.png" />
+    <Resource Include="Resources\card47.png" />
+    <Resource Include="Resources\card48.png" />
+    <Resource Include="Resources\card49.png" />
+    <Resource Include="Resources\card50.png" />
+    <Resource Include="Resources\card51.png" />
+    <Resource Include="Resources\card52.png" />
+    <Resource Include="Resources\card53.png" />
+    <Resource Include="Resources\splash.png" />
+    <Resource Include="Resources\icon.jpg" />
+    <Resource Include="Resources\background.png" />
+  </ItemGroup>
+
+</Project>

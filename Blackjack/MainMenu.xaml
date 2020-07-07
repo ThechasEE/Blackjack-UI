@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="Blackjack.MainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Blackjack"
+             mc:Ignorable="d"
+             FontFamily="Segoe UI" FontSize="18"
+             d:DesignHeight="720" d:DesignWidth="1280" Loaded="UserControl_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0"/>
+        </Grid.RowDefinitions>
+
+        <!-- Page Header -->
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Orientation="Vertical" Background="#aa111111" Margin="150,0">
+            <TextBlock HorizontalAlignment="Center" FontSize="80" Text="Blackjack: Furry Edition" Foreground="White" FontFamily="Segoe UI Light"/>
+            <TextBlock HorizontalAlignment="Center" FontSize="30" Text="By: Chase~" Foreground="White" FontFamily="Forte" Padding="0,0,0,5"/>
+        </StackPanel>
+
+        <!-- Cards Image -->
+        <Image Grid.Row="2" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="1" Source="\Resources\splash.png" Width="500"/>
+
+        <!-- Freestyle Text -->
+        <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" Margin="20,20,20,5" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock Foreground="#0FFF0F" Background="#88FFFFFF" Text="Freestyle:" FontSize="24"/>
+            <TextBlock Foreground="White" Text=" Play Blackjack for as long as you want!" FontSize="24"/>
+        </StackPanel>
+
+        <!-- Challenge Text -->
+        <StackPanel Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="20,5,20,5">
+            <TextBlock Foreground="Blue" Background="#88FFFFFF" Text="Challenge:" FontSize="24"/>
+            <TextBlock Foreground="White" Text=" Play to try and win a certain amount of money!" FontSize="24"/>
+        </StackPanel>
+
+        <!-- Information Box -->
+        <StackPanel Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="4" Orientation="Vertical" HorizontalAlignment="Center" Margin="20,5,20,5">
+            <!-- Information Header -->
+            <StackPanel Orientation="Horizontal" Margin="20,5,20,5" HorizontalAlignment="Center">
+                <TextBlock Foreground="Orange" FontFamily="Segoe MDL2 Assets" Text="&#xE946; " HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <TextBlock Foreground="Orange" Text="Information"/>
+                <TextBlock Foreground="Orange" FontFamily="Segoe MDL2 Assets" Text=" &#xE946;" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <!-- Help Link -->
+            <TextBlock HorizontalAlignment="Center" Margin="20,0,20,5">
+                    <Hyperlink Name="HelpLink" NavigateUri="https://bicyclecards.com/how-to-play/blackjack/" RequestNavigate="Hyperlink_RequestNavigate" >How to play Blackjack</Hyperlink>
+            </TextBlock>
+
+            <!-- Information Content -->
+            <TextBlock HorizontalAlignment="Center" Margin="20,5,20,5" Foreground="White" TextWrapping="Wrap" TextAlignment="Center">
+                    I made this as I was bored during quarantine and thought it would be a fun project. I learned a lot making this! Furry themed because am furry :3
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" Margin="20,5,20,5" Foreground="White" TextWrapping="Wrap" Width="600">
+                    • All cards are NOT randomly generated upon draw.
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Center" Margin="20,5,20,5" Foreground="White" TextWrapping="Wrap" Width="600">
+                    • Dealer draws until he has 17 or higher. This is standard at most casinos.
+            </TextBlock>
+        </StackPanel>
+
+        <!-- Decks Slider -->
+        <StackPanel Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="4" Orientation="Horizontal" Margin="20,5,20,5" HorizontalAlignment="Center">
+            <TextBlock Text="Decks" Foreground="White" Margin="10" FontFamily="Consolas"/>
+            <Slider x:Name="DeckSlider" VerticalAlignment="Center" Width="500" Minimum="1" Maximum="8" SmallChange="1" TickPlacement="BottomRight" Value="1" IsSnapToTickEnabled="True" ValueChanged="DeckSlider_ValueChanged"/>
+            <TextBlock x:Name="DeckCounter" Text="1" Foreground="White" Margin="10" FontFamily="Consolas"/>
+        </StackPanel>
+
+        <!-- Game Buttons -->
+        <StackPanel Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button x:Name="FreestyleButton" Content="Freestyle" Style="{DynamicResource FreestyleButton_Style}" Click="FreestyleButton_Click"/>
+            <Button x:Name="ChallengeButton" Content="Challenge" Style="{DynamicResource ChallengeButton_Style}" Click="ChallengeButton_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
