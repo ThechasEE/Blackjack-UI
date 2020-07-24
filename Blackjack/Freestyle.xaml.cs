@@ -35,16 +35,20 @@ namespace Blackjack
 
             notifications = new StackPanel[] { DealersTurnNotification, PushNotification, BustNotification, LostNotification, DealerBlackjackNotification, WinNotification, BlackjackNotification };
             views = new WrapPanel[] { DealerView, PlayerView };
-            totals = new TextBlock[] { DealerTotal, PlayerTotal };
+            totals = new TextBlock[] { DealerTotal, PlayerTotal, FreestyleWin, FreestyleLost, FreestylePush };
             buttons = new Button[] { PlayButton, BackButton, HitButton, StandButton };
-
-            blackjackInstance = new Game(this.deckCount, parentWindow);
         }
 
         // Find the main window of this control.
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             parentWindow = (MainWindow)Window.GetWindow(this);
+
+            FreestyleWin.Text = parentWindow.freestyleWinCount.ToString();
+            FreestyleLost.Text = parentWindow.freestyleLostCount.ToString();
+            FreestylePush.Text = parentWindow.freestylePushCount.ToString();
+
+            blackjackInstance = new Game(deckCount, parentWindow);
 
             BackButton.IsEnabled = true;
             PlayButton.IsEnabled = true;
@@ -62,6 +66,7 @@ namespace Blackjack
         // Take the player back to the main menu.
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
+            //ExitPopup.IsOpen = true;
             parentWindow.MainScreen.Content = new MainMenu();
         }
 
@@ -71,6 +76,7 @@ namespace Blackjack
             await blackjackInstance.Hit(views, totals, notifications, buttons);
         }
 
+        // Signal for dealer to do his turn.
         private async void StandButton_Click(object sender, RoutedEventArgs e)
         {
             await blackjackInstance.Stand(views, totals, notifications, buttons);

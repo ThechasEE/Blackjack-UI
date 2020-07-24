@@ -20,6 +20,9 @@ namespace Blackjack
         public const int TIMEOUT_DELAY = 300;
         public const int DEALER = 0;
         public const int PLAYER = 1;
+        public const int WIN = 2;
+        public const int LOST = 3;
+        public const int PUSH = 4;
         public const int PLAY_BUTTON = 0;
         public const int BACK_BUTTON = 1;
         public const int HIT_BUTTON = 2;
@@ -141,16 +144,32 @@ namespace Blackjack
 
             // Dealer bust, player wins.
             if (dealerHand.HandValue > 21)
+            {
                 await DisplayNotification(notifications, Constants.WIN_NOTIF);
+                parentWindow.freestyleWinCount++;
+                totals[Constants.WIN].Text = parentWindow.freestyleWinCount.ToString();
+            }
             // Push.
             else if (dealerHand.HandValue == playerHand.HandValue)
+            {
                 await DisplayNotification(notifications, Constants.PUSH_NOTIF);
+                parentWindow.freestylePushCount++;
+                totals[Constants.PUSH].Text = parentWindow.freestylePushCount.ToString();
+            }
             // Player win.
             else if (dealerHand.HandValue < playerHand.HandValue)
+            {
                 await DisplayNotification(notifications, Constants.WIN_NOTIF);
-            // Player lose.
+                parentWindow.freestyleWinCount++;
+                totals[Constants.WIN].Text = parentWindow.freestyleWinCount.ToString();
+            }
+            // Player lost.
             else
+            {
                 await DisplayNotification(notifications, Constants.LOST_NOTIF);
+                parentWindow.freestyleLostCount++;
+                totals[Constants.LOST].Text = parentWindow.freestyleLostCount.ToString();
+            }
 
             AllowReplay(buttons);
         }
@@ -172,6 +191,8 @@ namespace Blackjack
                 buttons[Constants.STAND_BUTTON].IsEnabled = false;
 
                 await DisplayNotification(notifications, Constants.BUST_NOTIF);
+                parentWindow.freestyleLostCount++;
+                totals[Constants.LOST].Text = parentWindow.freestyleLostCount.ToString();
 
                 RevealCard(views[Constants.DEALER], totals[Constants.DEALER]);
 
@@ -251,6 +272,8 @@ namespace Blackjack
                     await Task.Delay(Constants.TIMEOUT_DELAY);
                     RevealCard(views[Constants.DEALER], totals[Constants.DEALER]);
                     await DisplayNotification(notifications, Constants.PUSH_NOTIF);
+                    parentWindow.freestylePushCount++;
+                    totals[Constants.PUSH].Text = parentWindow.freestylePushCount.ToString();
                 }
                 // Dealer blackjack, player loses.
                 else if (dealerHand.HandValue == 21 && playerHand.HandValue != 21)
@@ -258,12 +281,16 @@ namespace Blackjack
                     await Task.Delay(Constants.TIMEOUT_DELAY);
                     RevealCard(views[Constants.DEALER], totals[Constants.DEALER]);
                     await DisplayNotification(notifications, Constants.DEALER_BLACKJACK_NOTIF);
+                    parentWindow.freestyleLostCount++;
+                    totals[Constants.LOST].Text = parentWindow.freestyleLostCount.ToString();
                 }
                 // Player blackjack, player wins.
                 else if (dealerHand.HandValue != 21 && playerHand.HandValue == 21)
                 {
                     await DisplayNotification(notifications, Constants.BLACKJACK_NOTIF);
                     RevealCard(views[Constants.DEALER], totals[Constants.DEALER]);
+                    parentWindow.freestyleWinCount++;
+                    totals[Constants.WIN].Text = parentWindow.freestyleWinCount.ToString();
                 }
 
                 AllowReplay(buttons);

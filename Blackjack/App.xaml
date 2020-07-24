@@ -366,11 +366,11 @@
                     <ControlTemplate TargetType="Button">
                         <!-- Button Layout -->
                         <Grid Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" ClipToBounds="True">
-                            <Border BorderBrush="White" BorderThickness="1">
-                                <Rectangle Name="HitStandButton_Body" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#55080869"/>
+                            <Border BorderBrush="Black" BorderThickness="1">
+                                <Rectangle Name="HitStandButton_Body" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Fill="#77f0f0f0"/>
                             </Border>
                             <StackPanel Name="HitStandButton_StackPanel" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <ContentPresenter Name="HitStandButton_Content" Content="{TemplateBinding Content}" TextBlock.Foreground="Blue"/>
+                                <ContentPresenter Name="HitStandButton_Content" Content="{TemplateBinding Content}" TextBlock.Foreground="Black"/>
                             </StackPanel>
                         </Grid>
                         <!-- Button Events -->
@@ -381,14 +381,14 @@
                                         <Storyboard>
                                             <ColorAnimation Storyboard.TargetName="HitStandButton_Body"
                                                             Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)"
-                                                            From="#55080869" To="#AA0000FF" Duration="0:0:0.2" AutoReverse="False"/>
+                                                            From="#77f0f0f0" To="#AA0000FF" Duration="0:0:0.2" AutoReverse="False"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                     <BeginStoryboard Name="HitStandButton_StoryBoard_Enter_Content">
                                         <Storyboard>
                                             <ColorAnimation Storyboard.TargetName="HitStandButton_Content"
                                                             Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"
-                                                            From="Blue" To="#FFFFFF" Duration="0:0:0.2" AutoReverse="False"/>
+                                                            From="Black" To="#FFFFFF" Duration="0:0:0.2" AutoReverse="False"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </EventTrigger.Actions>
@@ -399,14 +399,14 @@
                                         <Storyboard>
                                             <ColorAnimation Storyboard.TargetName="HitStandButton_Body"
                                                             Storyboard.TargetProperty="(Rectangle.Fill).(SolidColorBrush.Color)"
-                                                            From="#AA0000FF" To="#55080869" Duration="0:0:0.2" AutoReverse="False"/>
+                                                            From="#AA0000FF" To="#77f0f0f0" Duration="0:0:0.2" AutoReverse="False"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                     <BeginStoryboard Name="HitStandButton_StoryBoard_Leave_Content">
                                         <Storyboard>
                                             <ColorAnimation Storyboard.TargetName="HitStandButton_Content"
                                                             Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)"
-                                                            From="#FFFFFF" To="Blue" Duration="0:0:0.2" AutoReverse="False"/>
+                                                            From="#FFFFFF" To="Black" Duration="0:0:0.2" AutoReverse="False"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </EventTrigger.Actions>

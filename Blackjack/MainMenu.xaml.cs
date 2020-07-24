@@ -75,7 +75,7 @@ namespace Blackjack
         // Change screen to challenge gamemode.
         private void ChallengeButton_Click(object sender, RoutedEventArgs e)
         {
-            parentWindow.MainScreen.Content = new Challenge();
+            //parentWindow.MainScreen.Content = new Challenge();
         }
     }
 }
