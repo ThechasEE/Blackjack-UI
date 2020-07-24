@@ -21,6 +21,10 @@ namespace Blackjack
     {
         private MainWindow parentWindow;
         private Game blackjackInstance;
+        private StackPanel[] notifications;
+        private WrapPanel[] views;
+        private TextBlock[] totals;
+        private Button[] buttons;
         private int deckCount;
 
         public Freestyle(int deckCount)
@@ -28,17 +32,31 @@ namespace Blackjack
             InitializeComponent();
 
             this.deckCount = deckCount;
-            blackjackInstance = new Game(this.deckCount);
 
-            // Set button states.
-            HitButton.IsEnabled = false;
-            StandButton.IsEnabled = false;
+            notifications = new StackPanel[] { DealersTurnNotification, PushNotification, BustNotification, LostNotification, DealerBlackjackNotification, WinNotification, BlackjackNotification };
+            views = new WrapPanel[] { DealerView, PlayerView };
+            totals = new TextBlock[] { DealerTotal, PlayerTotal };
+            buttons = new Button[] { PlayButton, BackButton, HitButton, StandButton };
+
+            blackjackInstance = new Game(this.deckCount, parentWindow);
         }
 
         // Find the main window of this control.
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             parentWindow = (MainWindow)Window.GetWindow(this);
+
+            BackButton.IsEnabled = true;
+            PlayButton.IsEnabled = true;
+        }
+
+        // Play a round of the game. Does the initial draw.
+        private async void PlayButton_Click(object sender, RoutedEventArgs e)
+        {
+            PlayButton.IsEnabled = false;
+            PlayButton.Content = "Play";
+
+            await blackjackInstance.Play(views, totals, notifications, buttons);
         }
 
         // Take the player back to the main menu.
@@ -47,15 +65,15 @@ namespace Blackjack
             parentWindow.MainScreen.Content = new MainMenu();
         }
 
-        // Play a round of the game. Does the initial draw.
-        private async void PlayButton_Click(object sender, RoutedEventArgs e)
+        // Draw a card.
+        private async void HitButton_Click(object sender, RoutedEventArgs e)
         {
-            PlayButton.IsEnabled = false;
+            await blackjackInstance.Hit(views, totals, notifications, buttons);
+        }
 
-            await blackjackInstance.DrawInitialCards(DealerView, PlayerView, DealerTotal, PlayerTotal);
-
-            HitButton.IsEnabled = true;
-            StandButton.IsEnabled = true;
+        private async void StandButton_Click(object sender, RoutedEventArgs e)
+        {
+            await blackjackInstance.Stand(views, totals, notifications, buttons);
         }
     }
 }

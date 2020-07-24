@@ -20,7 +20,7 @@ namespace Blackjack
     public partial class MainMenu : UserControl
     {
         private MainWindow parentWindow;
-        private int deckCount = 1;
+        private int deckCount;
 
         public MainMenu()
         {
@@ -31,6 +31,11 @@ namespace Blackjack
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             parentWindow = (MainWindow)Window.GetWindow(this);
+
+            // Set up slider.
+            deckCount = parentWindow.deckCount;
+            DeckSlider.Value = deckCount;
+            DeckCounter.Text = deckCount.ToString();
         }
 
         // Handles the "How to play Blackjack" hyperlink.
@@ -57,6 +62,7 @@ namespace Blackjack
             {
                 deckCount = (int)e.NewValue;
                 DeckCounter.Text = deckCount.ToString();
+                parentWindow.deckCount = deckCount;
             }
         }
 

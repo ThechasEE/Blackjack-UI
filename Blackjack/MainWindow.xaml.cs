@@ -20,6 +20,11 @@ namespace Blackjack
 {
     public partial class MainWindow : Window
     {
+        public int deckCount = 1;
+        public int freestyleWinCount = 0;
+        public int freestyleLostCount = 0;
+        public int freestylePushCount = 0;
+
         public MainWindow()
         {
             InitializeComponent();

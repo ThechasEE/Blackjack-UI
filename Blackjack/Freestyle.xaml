@@ -25,24 +25,24 @@
         </Grid.RowDefinitions>
 
         <!-- Dealer block -->
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Dealer" Foreground="White" Margin="5"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Dealer" Foreground="White" Margin="5" FontFamily="Arial Black"/>
         <StackPanel Grid.Row="0" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
-            <TextBlock Text="Total: " Foreground="White"/>
-            <TextBlock x:Name="DealerTotal" Text="0" Foreground="White"/>
+            <TextBlock Text="Total: " Foreground="White" FontFamily="Arial Black"/>
+            <TextBlock x:Name="DealerTotal" Text="0" Foreground="White" FontFamily="Arial Black"/>
         </StackPanel>
-        <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Background="#AA333333" Height="225">
+        <ScrollViewer Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" Background="#AA333333" Height="225" VerticalScrollBarVisibility="Hidden">
             <WrapPanel x:Name="DealerView" Orientation="Horizontal" VerticalAlignment="Top">
                 <!--<Image Source="/Resources/card1.png" Height="194" Margin="5"/>-->
             </WrapPanel>
         </ScrollViewer>
 
         <!-- Player block -->
-        <TextBlock Grid.Row="3" Grid.Column="0" Text="You" Foreground="White" Margin="5,25,5,5"/>
+        <TextBlock Grid.Row="3" Grid.Column="0" Text="You" Foreground="White" Margin="5,25,5,5" FontFamily="Arial Black"/>
         <StackPanel Grid.Row="3" Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5,25,5,5">
-            <TextBlock Text="Total: " Foreground="White"/>
-            <TextBlock x:Name="PlayerTotal" Text="0" Foreground="White"/>
+            <TextBlock Text="Total: " Foreground="White" FontFamily="Arial Black"/>
+            <TextBlock x:Name="PlayerTotal" Text="0" Foreground="White" FontFamily="Arial Black"/>
         </StackPanel>
-        <ScrollViewer Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" Background="#AA333333" Height="225">
+        <ScrollViewer Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" Background="#AA333333" Height="225" VerticalScrollBarVisibility="Hidden">
             <WrapPanel x:Name="PlayerView" Orientation="Horizontal" VerticalAlignment="Top">
                 <!--<Image Source="/Resources/card1.png" Height="194" Margin="5"/>-->
             </WrapPanel>
@@ -50,14 +50,44 @@
 
         <!-- Play/Back buttons -->
         <StackPanel Grid.Column="0"  Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Bottom">
-            <Button x:Name="PlayButton" Content="Play" Style="{DynamicResource PlayButton_Style}" Click="PlayButton_Click"/>
-            <Button x:Name="BackButton" Content="Back" Style="{DynamicResource BackButton_Style}" Click="BackButton_Click"/>
+            <Button x:Name="PlayButton" Content="Play" Style="{DynamicResource PlayButton_Style}" Click="PlayButton_Click" IsEnabled="False"/>
+            <Button x:Name="BackButton" Content="Back" Style="{DynamicResource BackButton_Style}" Click="BackButton_Click" IsEnabled="False"/>
         </StackPanel>
 
         <!-- Hit/Stand buttons -->
         <StackPanel Grid.Column="4"  Grid.Row="5" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-            <Button x:Name="HitButton" Content="Hit" Style="{DynamicResource HitStandButton_Style}"/>
-            <Button x:Name="StandButton" Content="Stand" Style="{DynamicResource HitStandButton_Style}"/>
+            <Button x:Name="HitButton" Content="Hit" Style="{DynamicResource HitStandButton_Style}" Click="HitButton_Click" IsEnabled="False"/>
+            <Button x:Name="StandButton" Content="Stand" Style="{DynamicResource HitStandButton_Style}" Click="StandButton_Click" IsEnabled="False"/>
+        </StackPanel>
+
+        <!-- NOTIFICATIONS -->
+        <!-- DEALERS TURN -->
+        <StackPanel x:Name="DealersTurnNotification" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="6" HorizontalAlignment="Center" Visibility="Hidden">
+            <TextBlock Text="DEALERS TURN" Foreground="#110DDB" Background="#AA060466" FontSize="100" Padding="50" Margin="0,166,0,0" FontFamily="Arial Black"/>
+        </StackPanel>
+        <!-- PUSH -->
+        <StackPanel x:Name="PushNotification" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="6" HorizontalAlignment="Center" Visibility="Hidden">
+            <TextBlock Text="PUSH" Foreground="#110DDB" Background="#AA060466" FontSize="100" Padding="50" Margin="0,166,0,0" FontFamily="Arial Black"/>
+        </StackPanel>
+        <!-- BUST -->
+        <StackPanel x:Name="BustNotification" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="6" HorizontalAlignment="Center" Visibility="Hidden">
+            <TextBlock Text="BUST" Foreground="#E31B1B" Background="#AA540505" FontSize="100" Padding="50" Margin="0,166,0,0" FontFamily="Arial Black"/>
+        </StackPanel>
+        <!-- LOST -->
+        <StackPanel x:Name="LostNotification" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="6" HorizontalAlignment="Center" Visibility="Hidden">
+            <TextBlock Text="LOST" Foreground="#E31B1B" Background="#AA540505" FontSize="100" Padding="50" Margin="0,166,0,0" FontFamily="Arial Black"/>
+        </StackPanel>
+        <!-- DEALER BLACKJACK -->
+        <StackPanel x:Name="DealerBlackjackNotification" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="6" HorizontalAlignment="Center" Visibility="Hidden">
+            <TextBlock Text="DEALER BLACKJACK" Foreground="#E31B1B" Background="#AA540505" FontSize="90" Padding="50" Margin="0,175,0,0" FontFamily="Arial Black"/>
+        </StackPanel>
+        <!-- WIN -->
+        <StackPanel x:Name="WinNotification" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="6" HorizontalAlignment="Center" Visibility="Hidden">
+            <TextBlock Text="WIN" Foreground="#26EB0C" Background="#AA0A3D03" FontSize="100" Padding="50" Margin="0,166,0,0" FontFamily="Arial Black"/>
+        </StackPanel>
+        <!-- BLACKJACK -->
+        <StackPanel x:Name="BlackjackNotification" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="5" Grid.RowSpan="6" HorizontalAlignment="Center" Visibility="Hidden">
+            <TextBlock Text="BLACKJACK" Foreground="#ffdd00" Background="#AA6e5c05" FontSize="100" Padding="50" Margin="0,166,0,0" FontFamily="Arial Black"/>
         </StackPanel>
     </Grid>
 </UserControl>
