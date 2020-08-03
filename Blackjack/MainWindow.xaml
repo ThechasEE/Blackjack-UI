@@ -41,7 +41,7 @@
         </StackPanel>
 
         <ContentControl Grid.Row="1" Grid.Column="1" x:Name="MainScreen">
-            <!-- TEST XAML GOES HERE -->
+            <!-- TEST XAML -->
         </ContentControl>
     </Grid>
 </Window>

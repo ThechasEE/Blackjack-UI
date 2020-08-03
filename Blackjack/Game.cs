@@ -121,7 +121,7 @@ namespace Blackjack
             buttons[Constants.HIT_BUTTON].IsEnabled = false;
             buttons[Constants.STAND_BUTTON].IsEnabled = false;
 
-            await DisplayNotification(notifications, Constants.DEALER_TURN_NOTIF);
+            // await DisplayNotification(notifications, Constants.DEALER_TURN_NOTIF);
 
             await Task.Delay(Constants.TIMEOUT_DELAY);
 
@@ -417,7 +417,7 @@ namespace Blackjack
         private void ShuffleDeck(Deck deck)
         {
             Card[] cards = deck.Cards;
-            int n = deck.TotalCards;
+            int n = deck.Cards.Length;
 
             for (int i = 0; i < (n - 1); i++)
             {

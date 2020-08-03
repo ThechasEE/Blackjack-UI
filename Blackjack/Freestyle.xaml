@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Blackjack"
              mc:Ignorable="d"
              FontFamily="Segoe UI" FontSize="18"
-             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+             d:DesignHeight="900" d:DesignWidth="1600" Loaded="UserControl_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
@@ -76,7 +76,23 @@
 
         <!-- Exit popup -->
         <Popup x:Name="ExitPopup" IsOpen="False" Placement="Center" StaysOpen="False">
-            <!-- TODO -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Background="#55111111">
+                    <Button x:Name="ConfirmBack" Content="Confirm Back?" Style="{DynamicResource BackButton_Style}" Margin="10,10,10,0" Click="ConfirmBack_Click" />
+                    <Button x:Name="ConfirmCancel" Content="Cancel" Style="{DynamicResource PlayButton_Style}" Margin="10" Click="ConfirmCancel_Click"/>
+                </StackPanel>
+            </Grid>
         </Popup>
 
         <!-- Hit/Stand buttons -->

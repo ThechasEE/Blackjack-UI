@@ -63,11 +63,10 @@ namespace Blackjack
             await blackjackInstance.Play(views, totals, notifications, buttons);
         }
 
-        // Take the player back to the main menu.
+        // Ask the player to go back to menu.
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            //ExitPopup.IsOpen = true;
-            parentWindow.MainScreen.Content = new MainMenu();
+            ExitPopup.IsOpen = true;
         }
 
         // Draw a card.
@@ -80,6 +79,18 @@ namespace Blackjack
         private async void StandButton_Click(object sender, RoutedEventArgs e)
         {
             await blackjackInstance.Stand(views, totals, notifications, buttons);
+        }
+
+        // Hide the back menu.
+        private void ConfirmCancel_Click(object sender, RoutedEventArgs e)
+        {
+            ExitPopup.IsOpen = false;
+        }
+
+        // Go back to main menu.
+        private void ConfirmBack_Click(object sender, RoutedEventArgs e)
+        {
+            parentWindow.MainScreen.Content = new MainMenu();
         }
     }
 }
