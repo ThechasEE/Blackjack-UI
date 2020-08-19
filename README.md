@@ -8,4 +8,4 @@ Features two gamemodes (Freestyle and Challenge)
 
 ## Download
 
-Coming soon!
+https://github.com/ThechasEE/Blackjack-UI/releases/tag/0.8.2
