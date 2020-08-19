@@ -32,7 +32,7 @@
 
         <!-- Page Header -->
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="5" Orientation="Vertical" Background="#aa111111" Margin="150,0">
-            <TextBlock HorizontalAlignment="Center" FontSize="80" Text="Blackjack: Furry Edition" Foreground="White" FontFamily="Segoe UI Light"/>
+            <TextBlock HorizontalAlignment="Center" FontSize="80" Text="Blackjack" Foreground="White" FontFamily="Segoe UI Light"/>
             <TextBlock HorizontalAlignment="Center" FontSize="30" Text="By: Chase~" Foreground="White" FontFamily="Forte" Padding="0,0,0,5"/>
         </StackPanel>
 
@@ -67,7 +67,7 @@
 
             <!-- Information Content -->
             <TextBlock HorizontalAlignment="Center" Margin="20,5,20,5" Foreground="White" TextWrapping="Wrap" TextAlignment="Center">
-                    I made this as I was bored during quarantine and thought it would be a fun project. I learned a lot making this! Furry themed because am furry :3
+                    I made this as I was bored during quarantine and thought it would be a fun project. I learned a lot making this!
             </TextBlock>
             <TextBlock HorizontalAlignment="Center" Margin="20,5,20,5" Foreground="White" TextWrapping="Wrap" Width="600">
                     • All cards are NOT randomly generated upon draw.
